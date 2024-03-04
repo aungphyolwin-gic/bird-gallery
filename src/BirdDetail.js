@@ -1,12 +1,21 @@
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import useFetch from "./useFetch";
 
 const BirdDetail = () => {
   const { id } = useParams();
+  const history = useHistory();
   const { data: bird, isPending, error } = useFetch(
     "https://json-server-host.vercel.app/Birds/" + id
   );
-  console.log(bird);
+  // console.log(bird);
+  const handleClick = ()=>{
+    fetch("https://json-server-host.vercel.app/Birds/" + id, 
+        {method: 'DELETE'})
+        .then(()=>{
+          // console.log('delete success.')
+          history.push('/birds');
+        })
+  }
   return (
     <>
       <div className="container">
@@ -38,6 +47,9 @@ const BirdDetail = () => {
                     </div>
                   </div>
                   <div className="card-body">{bird.Description}</div>
+                </div>
+                <div className="mt-3 d-flex justify-content-end">
+                  <button onClick={handleClick} className="btn btn-danger">Delete</button>
                 </div>
               </div>
             </div>

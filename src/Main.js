@@ -13,12 +13,13 @@ export default function Main() {
         <div className="row">
           <div className="col-12">
             <div className="row">
-              <div className="col-md-6">
+              {/* large screen two column 1 */}
+              <div className="col-md-6 mb-3">
                 {/* bird card  */}
                 <Link
                   to="/birds"
                   className="card bg-dark rounded-5 text-decoration-none text-white"
-                >
+                  >
                   <div className="row row-cols-2 p-3 align-items-md-center ">
                     <div className="col">
                       <img
@@ -38,6 +39,7 @@ export default function Main() {
                   </div>
                 </Link>
               </div>
+              {/* large screen two column 1 */}
               <div className="col-md-6">
                 <div className="row mb-2">
                   <div className="card rounded-5 bg-dark text-nowrap">
